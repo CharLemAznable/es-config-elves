@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.charlemaznable</groupId>
+        <artifactId>char-dependencies</artifactId>
+        <version>0.0.6-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>es-diamond-config</artifactId>
+    <version>0.0.6-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Elastic Search Diamond Config</name>
+    <url>https://github.com/CharLemAznable/es-diamond-config</url>
+    <description>Elastic Search Configuration Util by Diamond.</description>
+
+    <scm>
+        <connection>scm:git:https://github.com/CharLemAznable/es-diamond-config.git</connection>
+        <developerConnection>scm:git:https://github.com/CharLemAznable/es-diamond-config.git</developerConnection>
+        <url>https://github.com/CharLemAznable/es-diamond-config</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>diamond-client</artifactId>
+        </dependency>
+
+        <!-- dependency for using org.n3r.eql.util.O -->
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>eql</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>
