@@ -24,7 +24,17 @@
         <url>https://github.com/CharLemAznable/es-diamond-config</url>
     </scm>
 
+    <properties>
+        <sonar.exclusions>
+            src/main/java/com/github/charlemaznable/es/diamond/EsClientBuildElf.java
+        </sonar.exclusions>
+    </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>diamond-client</artifactId>
@@ -35,6 +45,12 @@
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>eql</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
