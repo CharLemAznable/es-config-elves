@@ -2,6 +2,7 @@ package com.github.charlemaznable.es.diamond;
 
 import com.google.common.base.Splitter;
 import com.google.common.primitives.Primitives;
+import lombok.NoArgsConstructor;
 import lombok.val;
 import org.n3r.diamond.client.Miner;
 import org.n3r.eql.util.O;
@@ -11,8 +12,10 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static lombok.AccessLevel.PRIVATE;
 import static org.n3r.diamond.client.impl.DiamondUtils.parseStoneToProperties;
 
+@NoArgsConstructor(access = PRIVATE)
 public final class EsConfigDiamondElf {
 
     public static final String ES_CONFIG_GROUP_NAME = "EsConfig";
@@ -49,6 +52,4 @@ public final class EsConfigDiamondElf {
         }
         return esConfig;
     }
-
-    private EsConfigDiamondElf() {}
 }
