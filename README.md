@@ -1,7 +1,6 @@
 ### es-diamond-config
 
-[![Build Status](https://travis-ci.org/CharLemAznable/es-diamond-config.svg?branch=main)](https://travis-ci.org/CharLemAznable/es-diamond-config)
-[![codecov](https://codecov.io/gh/CharLemAznable/es-diamond-config/branch/main/graph/badge.svg)](https://codecov.io/gh/CharLemAznable/es-diamond-config)
+[![Build](https://github.com/CharLemAznable/es-diamond-config/actions/workflows/build.yml/badge.svg)](https://github.com/CharLemAznable/es-diamond-config/actions/workflows/build.yml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.charlemaznable/es-diamond-config/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.charlemaznable/es-diamond-config/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/CharLemAznable/es-diamond-config)
