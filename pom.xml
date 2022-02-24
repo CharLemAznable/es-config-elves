@@ -46,32 +46,25 @@
 
     <properties>
         <sonar.projectKey>CharLemAznable_es-diamond-config</sonar.projectKey>
-        <sonar.exclusions>
-            src/main/java/com/github/charlemaznable/es/diamond/EsClientBuildElf.java
-        </sonar.exclusions>
+
+        <char-elves.version>0.0.6-SNAPSHOT</char-elves.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <groupId>com.github.charlemaznable</groupId>
+            <artifactId>char-elves</artifactId>
+            <version>${char-elves.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>diamond-client</artifactId>
         </dependency>
-
         <!-- dependency for using org.n3r.eql.util.O -->
         <dependency>
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>eql</artifactId>
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
