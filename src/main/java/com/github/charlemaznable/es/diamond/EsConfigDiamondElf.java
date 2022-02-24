@@ -11,8 +11,8 @@ import org.n3r.eql.util.O.ValueGettable;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 
-import static com.github.charlemaznable.core.lang.Str.toStr;
 import static lombok.AccessLevel.PRIVATE;
 import static org.n3r.diamond.client.impl.DiamondUtils.parseStoneToProperties;
 
@@ -30,7 +30,7 @@ public final class EsConfigDiamondElf {
 
         val properties = parseStoneToProperties(stone);
         for (val prop : properties.entrySet()) {
-            O.setValue(esConfig, toStr(prop.getKey()), new ValueGettable() {
+            O.setValue(esConfig, Objects.toString(prop.getKey()), new ValueGettable() {
                 @Override
                 public Object getValue() {
                     return prop.getValue();
@@ -39,7 +39,7 @@ public final class EsConfigDiamondElf {
                 @SuppressWarnings("unchecked")
                 @Override
                 public Object getValue(Class<?> returnType) {
-                    val value = toStr(prop.getValue());
+                    val value = Objects.toString(prop.getValue());
                     val rt = Primitives.unwrap(returnType);
                     if (rt == String.class) return value;
                     if (rt == Duration.class)
