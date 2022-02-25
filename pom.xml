@@ -56,6 +56,7 @@
             <artifactId>char-elves</artifactId>
             <version>${char-elves.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>diamond-client</artifactId>
