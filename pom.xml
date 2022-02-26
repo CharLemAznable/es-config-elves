@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.charlemaznable</groupId>
         <artifactId>char-dependencies</artifactId>
-        <version>0.0.6-SNAPSHOT</version>
+        <version>0.0.7-SNAPSHOT</version>
     </parent>
 
     <artifactId>es-diamond-config</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.0.7-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Elastic Search Diamond Config</name>
@@ -47,7 +47,7 @@
     <properties>
         <sonar.projectKey>CharLemAznable_es-diamond-config</sonar.projectKey>
 
-        <char-elves.version>0.0.6-SNAPSHOT</char-elves.version>
+        <char-elves.version>0.0.7-SNAPSHOT</char-elves.version>
     </properties>
 
     <dependencies>
