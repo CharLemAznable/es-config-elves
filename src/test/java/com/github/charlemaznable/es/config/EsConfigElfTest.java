@@ -1,25 +1,37 @@
-package com.github.charlemaznable.es.diamond;
+package com.github.charlemaznable.es.config;
 
+import com.github.charlemaznable.apollo.MockApolloServer;
 import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.n3r.diamond.client.impl.MockDiamondServer;
 
 import java.time.Duration;
 
-import static com.github.charlemaznable.es.diamond.EsConfigDiamondElf.ES_CONFIG_GROUP_NAME;
-import static com.github.charlemaznable.es.diamond.EsConfigDiamondElf.getEsConfigStone;
-import static com.github.charlemaznable.es.diamond.EsConfigDiamondElf.parseStoneToEsConfig;
+import static com.github.charlemaznable.es.config.EsConfigElf.ES_CONFIG_DIAMOND_GROUP_NAME;
+import static com.github.charlemaznable.es.config.EsConfigElf.getEsConfigProperty;
+import static com.github.charlemaznable.es.config.EsConfigElf.getEsConfigStone;
+import static com.github.charlemaznable.es.config.EsConfigElf.parseConfigValueToEsConfig;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class EsConfigDiamondElfTest {
+public class EsConfigElfTest {
 
     @Test
-    public void testEsConfigDiamondElf() {
+    public void testEsConfigElfInApollo() {
+        MockApolloServer.setUpMockServer();
+
+        val configProperty = getEsConfigProperty("default");
+        assertConfigValue(configProperty);
+
+        MockApolloServer.tearDownMockServer();
+    }
+
+    @Test
+    public void testEsConfigElfInDiamond() {
         MockDiamondServer.setUpMockServer();
-        MockDiamondServer.setConfigInfo(ES_CONFIG_GROUP_NAME, "DEFAULT", "" +
+        MockDiamondServer.setConfigInfo(ES_CONFIG_DIAMOND_GROUP_NAME, "DEFAULT", "" +
                 "uris=http://localhost:9200,http://localhost:9201\n" +
                 "username=username\n" +
                 "password=pa55wOrd\n" +
@@ -27,9 +39,14 @@ public class EsConfigDiamondElfTest {
                 "socketTimeout=60\n");
 
         val configStone = getEsConfigStone("DEFAULT");
-        assertNotNull(configStone);
+        assertConfigValue(configStone);
 
-        val esConfig = parseStoneToEsConfig(configStone);
+        MockDiamondServer.tearDownMockServer();
+    }
+
+    private void assertConfigValue(String configValue) {
+        assertNotNull(configValue);
+        val esConfig = parseConfigValueToEsConfig(configValue);
         val uris = esConfig.getUris();
         assertEquals(2, uris.size());
         assertTrue(uris.contains("http://localhost:9200"));
@@ -39,7 +56,5 @@ public class EsConfigDiamondElfTest {
         assertEquals(Duration.ofSeconds(5), esConfig.getConnectionTimeout());
         assertEquals(Duration.ofSeconds(60), esConfig.getSocketTimeout());
         assertNull(esConfig.getPathPrefix());
-
-        MockDiamondServer.tearDownMockServer();
     }
 }

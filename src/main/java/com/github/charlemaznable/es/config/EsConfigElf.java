@@ -1,5 +1,6 @@
-package com.github.charlemaznable.es.diamond;
+package com.github.charlemaznable.es.config;
 
+import com.ctrip.framework.apollo.ConfigService;
 import com.github.charlemaznable.core.es.EsConfig;
 import com.google.common.base.Splitter;
 import com.google.common.primitives.Primitives;
@@ -17,18 +18,24 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.n3r.diamond.client.impl.DiamondUtils.parseStoneToProperties;
 
 @NoArgsConstructor(access = PRIVATE)
-public final class EsConfigDiamondElf {
+public final class EsConfigElf {
 
-    public static final String ES_CONFIG_GROUP_NAME = "EsConfig";
+    public static final String ES_CONFIG_APOLLO_NAMESPACE = "EsConfig";
+    public static final String ES_CONFIG_DIAMOND_GROUP_NAME = "EsConfig";
 
-    public static String getEsConfigStone(String dataId) {
-        return new Miner().getStone(ES_CONFIG_GROUP_NAME, dataId);
+    public static String getEsConfigProperty(String propertyName) {
+        return ConfigService.getConfig(ES_CONFIG_APOLLO_NAMESPACE)
+                .getProperty(propertyName, "");
     }
 
-    public static EsConfig parseStoneToEsConfig(String stone) {
+    public static String getEsConfigStone(String dataId) {
+        return new Miner().getStone(ES_CONFIG_DIAMOND_GROUP_NAME, dataId);
+    }
+
+    public static EsConfig parseConfigValueToEsConfig(String value) {
         val esConfig = new EsConfig();
 
-        val properties = parseStoneToProperties(stone);
+        val properties = parseStoneToProperties(value);
         for (val prop : properties.entrySet()) {
             O.setValue(esConfig, Objects.toString(prop.getKey()), new ValueGettable() {
                 @Override
