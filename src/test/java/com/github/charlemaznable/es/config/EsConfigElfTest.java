@@ -8,8 +8,8 @@ import org.n3r.diamond.client.impl.MockDiamondServer;
 import java.time.Duration;
 
 import static com.github.charlemaznable.es.config.EsConfigElf.ES_CONFIG_DIAMOND_GROUP_NAME;
-import static com.github.charlemaznable.es.config.EsConfigElf.getEsConfigProperty;
-import static com.github.charlemaznable.es.config.EsConfigElf.getEsConfigStone;
+import static com.github.charlemaznable.es.config.EsConfigElf.getApolloEsConfig;
+import static com.github.charlemaznable.es.config.EsConfigElf.getDiamondEsConfig;
 import static com.github.charlemaznable.es.config.EsConfigElf.parseConfigValueToEsConfig;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,7 +22,7 @@ public class EsConfigElfTest {
     public void testEsConfigElfInApollo() {
         MockApolloServer.setUpMockServer();
 
-        val configProperty = getEsConfigProperty("default");
+        val configProperty = getApolloEsConfig("default");
         assertConfigValue(configProperty);
 
         MockApolloServer.tearDownMockServer();
@@ -38,7 +38,7 @@ public class EsConfigElfTest {
                 "connectionTimeout=5\n" +
                 "socketTimeout=60\n");
 
-        val configStone = getEsConfigStone("DEFAULT");
+        val configStone = getDiamondEsConfig("DEFAULT");
         assertConfigValue(configStone);
 
         MockDiamondServer.tearDownMockServer();

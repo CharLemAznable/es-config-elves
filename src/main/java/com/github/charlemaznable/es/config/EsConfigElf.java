@@ -23,12 +23,12 @@ public final class EsConfigElf {
     public static final String ES_CONFIG_APOLLO_NAMESPACE = "EsConfig";
     public static final String ES_CONFIG_DIAMOND_GROUP_NAME = "EsConfig";
 
-    public static String getEsConfigProperty(String propertyName) {
+    public static String getApolloEsConfig(String propertyName) {
         return ConfigService.getConfig(ES_CONFIG_APOLLO_NAMESPACE)
                 .getProperty(propertyName, "");
     }
 
-    public static String getEsConfigStone(String dataId) {
+    public static String getDiamondEsConfig(String dataId) {
         return new Miner().getStone(ES_CONFIG_DIAMOND_GROUP_NAME, dataId);
     }
 
