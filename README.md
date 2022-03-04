@@ -21,7 +21,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=CharLemAznable_es-config-elves&metric=coverage)](https://sonarcloud.io/dashboard?id=CharLemAznable_es-config-elves)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=CharLemAznable_es-config-elves&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=CharLemAznable_es-config-elves)
 
-使用Diamond配置ElasticSearch.
+使用Apollo/Diamond配置ElasticSearch.
 
 ##### Maven Dependency
 
