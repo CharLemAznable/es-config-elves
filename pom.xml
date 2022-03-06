@@ -61,12 +61,6 @@
             <groupId>com.github.bingoohuang</groupId>
             <artifactId>diamond-client</artifactId>
         </dependency>
-        <!-- dependency for using org.n3r.eql.util.O -->
-        <dependency>
-            <groupId>com.github.bingoohuang</groupId>
-            <artifactId>eql</artifactId>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>com.github.charlemaznable</groupId>
             <artifactId>char-elves</artifactId>

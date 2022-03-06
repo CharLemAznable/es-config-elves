@@ -7,10 +7,10 @@ import org.n3r.diamond.client.impl.MockDiamondServer;
 
 import java.time.Duration;
 
+import static com.github.charlemaznable.core.es.EsClientElf.parseStringToEsConfig;
 import static com.github.charlemaznable.es.config.EsConfigElf.ES_CONFIG_DIAMOND_GROUP_NAME;
 import static com.github.charlemaznable.es.config.EsConfigElf.getApolloProperty;
 import static com.github.charlemaznable.es.config.EsConfigElf.getDiamondStone;
-import static com.github.charlemaznable.es.config.EsConfigElf.parseConfigValueToEsConfig;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -46,7 +46,7 @@ public class EsConfigElfTest {
 
     private void assertConfigValue(String configValue) {
         assertNotNull(configValue);
-        val esConfig = parseConfigValueToEsConfig(configValue);
+        val esConfig = parseStringToEsConfig(configValue);
         val uris = esConfig.getUris();
         assertEquals(2, uris.size());
         assertTrue(uris.contains("http://localhost:9200"));
