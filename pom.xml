@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.charlemaznable</groupId>
         <artifactId>char-dependencies</artifactId>
-        <version>0.0.7-SNAPSHOT</version>
+        <version>0.0.8-SNAPSHOT</version>
     </parent>
 
     <artifactId>es-config-elves</artifactId>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>0.0.8-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Elastic Search Config Elves</name>
@@ -47,9 +47,9 @@
     <properties>
         <sonar.projectKey>CharLemAznable_es-config-elves</sonar.projectKey>
 
-        <char-elves.version>0.0.7-SNAPSHOT</char-elves.version>
+        <char-elves.version>0.0.8-SNAPSHOT</char-elves.version>
 
-        <apollo-mockserver.version>0.0.7-SNAPSHOT</apollo-mockserver.version>
+        <apollo-mockserver.version>0.0.8-SNAPSHOT</apollo-mockserver.version>
     </properties>
 
     <dependencies>
