@@ -32,12 +32,13 @@ public class EsConfigElfTest {
     @Test
     public void testEsConfigElfInDiamond() {
         MockDiamondServer.setUpMockServer();
-        MockDiamondServer.setConfigInfo(ES_CONFIG_DIAMOND_GROUP_NAME, "DEFAULT", "" +
-                "uris=http://localhost:9200,http://localhost:9201\n" +
-                "username=username\n" +
-                "password=pa55wOrd\n" +
-                "connectionTimeout=5\n" +
-                "socketTimeout=60\n");
+        MockDiamondServer.setConfigInfo(ES_CONFIG_DIAMOND_GROUP_NAME, "DEFAULT", """
+                uris=http://localhost:9200,http://localhost:9201
+                username=username
+                password=pa55wOrd
+                connectionTimeout=5
+                socketTimeout=60
+                """);
 
         val configStone = getDiamondStone("DEFAULT");
         assertConfigValue(configStone);
